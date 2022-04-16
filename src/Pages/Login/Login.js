@@ -3,8 +3,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Spinner from '../Shared/Spinner/Spinner';
-import google from '../../Images/google.png';
-import github from '../../Images/github.png';
+import SharedSign from './SharedSign/SharedSign';
 
 const Login = () => {
   const emailRef = useRef('');
@@ -20,7 +19,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
-    const pass = email.current.value;
+    const pass = passwordRef.current.value;
     signInWithEmailAndPassword(email, pass);
   }
 
@@ -54,23 +53,11 @@ const Login = () => {
             className='mx-auto mt-3 block border-2 px-4 py-1 rounded-full bg-red-400 text-white h-12 w-40'
           >Login</button>
 
-          <button
-            className='mx-auto mt-3 block border-2 pl-4 py-1 rounded-full bg-red-400 text-white h-12 w-3/4'
-          >
-            <img className='w-8 h-8 inline-block' src={google} alt="" />
-            <span className='pl-2'>Google Sign in</span>
-          </button>
-
-          <button
-            className='mx-auto mt-3 block border-2 pl-4 py-1 rounded-full bg-red-400 text-white h-12 w-3/4'
-          >
-            <img className='w-8 h-8 inline-block' src={github} alt="" />
-            <span className='pl-2'>Git hub Sign in</span>
-          </button>
+          <SharedSign />
         </form>
       </div>
       {errorELement}
-      <p className=' text-center'>
+      <p className=' text-center mb-12'>
         <small className='text-sm'>
           New to Red Onion?
         </small>

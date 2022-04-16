@@ -3,6 +3,7 @@ import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Spinner from '../Shared/Spinner/Spinner';
+import SharedSign from '../Login/SharedSign/SharedSign';
 
 const SignUp = () => {
   const [
@@ -76,9 +77,10 @@ const SignUp = () => {
             disabled={!agree}
             className='mx-auto block border-2 px-4 py-1 rounded-full bg-red-400 text-white h-12 w-40'
           >Submit</button>
+          <SharedSign />
         </form>
       </div>
-      <p className=' text-center'>
+      <p className='mb-16 text-center'>
         <small className='text-sm'>
           Already have an account?
         </small>
