@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Spinner from '../Shared/Spinner/Spinner';
 import SharedSign from './SharedSign/SharedSign';
@@ -14,6 +14,8 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  let location = useLocation();
+  let from = location.state?.from?.pathname || '/';
   let errorELement;
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -24,7 +26,7 @@ const Login = () => {
   }
 
   if (user) {
-    navigate('/home')
+    navigate(from, { replace: true });
   }
   if (loading) {
     return <Spinner />

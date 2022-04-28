@@ -1,4 +1,5 @@
 import React from 'react';
+import Chef from './Chefs/Chef';
 import './Home.css';
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
           <button className='mx-12 font-semibold'>Dinner</button>
         </div>
       </div>
+      <Chef />
       <div className='my-12  '>
         <button className='border-2 font-medium block mx-auto px-12 bg-gray-600 text-white rounded-lg py-2'>Checkout your food</button>
         <div className='ml-12 mt-12 '>

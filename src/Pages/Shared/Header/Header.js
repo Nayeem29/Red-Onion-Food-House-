@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../../Images/logo2.png';
 // import { HiShoppingCart } from '@heroicons/react/solid';
 import { HiShoppingCart } from "react-icons/hi";
@@ -16,9 +16,14 @@ const Header = () => {
   return (
     <div className='flex justify-between my-3'>
       <div className="logo">
-        <img className='w-1/3 px-8' src={logo} alt="" />
+        <Link to={'/home'}>
+          <img className='w-1/3 px-8' src={logo} alt="" />
+        </Link>
       </div>
       <div className='flex justify-between items-center px-6'>
+        {
+          user && <NavLink to='/orders'>Orders</NavLink>
+        }
         <NavLink to='/cart' className='mx-6'>
           <HiShoppingCart className="h-8 w-8 text-black-500" />
         </NavLink>

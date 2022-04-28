@@ -1,4 +1,5 @@
 .searchBar {
   background-image: url('../../Images/bannerbackground.png');
   background-repeat: no-repeat;
+  background-size: 100vw;
 }
